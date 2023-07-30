@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "description": "",
+  "description": "Personal Homepage built by Next.js",
   "type": "module",
   "keywords": [
     "Chenjie",
@@ -41,9 +41,7 @@
     "@types/react-dom": "18.2.7",
     "next": "13.4.12",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-router-dom": "^6.14.2",
-    "typescript": "5.1.6"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.2.0",
@@ -55,6 +53,7 @@
     "eslint-plugin-react": "^7.33.0",
     "postcss": "8.4.27",
     "prettier": "^3.0.0",
-    "tailwindcss": "3.3.3"
+    "tailwindcss": "3.3.3",
+    "typescript": "^5.1.6"
   }
 }
