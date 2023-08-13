@@ -37,7 +37,11 @@
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",
     "@types/react-dom": "18.2.7",
+    "embla-carousel-autoplay": "^8.0.0-rc11",
+    "embla-carousel-react": "^8.0.0-rc11",
     "next": "13.4.12",
+    "nextra": "^2.10.0",
+    "nextra-theme-blog": "^2.10.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
