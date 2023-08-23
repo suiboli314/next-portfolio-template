@@ -1,18 +1,23 @@
 "use client";
 
-import React, { useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel, {
   EmblaOptionsType,
   EmblaCarouselType,
 } from "embla-carousel-react";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import Autoplay from "embla-carousel-autoplay";
-import AutoHeight from "embla-carousel-auto-height";
+import { flushSync } from "react-dom";
 import imageByIndex from "./imageByIndex";
 
 import "./base.css";
 import "./embla.css";
 import "./sandbox.css";
+
+const TWEEN_FACTOR = 1.2;
+
+const numberWithinRange = (number: number, min: number, max: number): number =>
+  Math.min(Math.max(number, min), max);
 
 type PropType = {
   slides: number[];
@@ -22,10 +27,8 @@ type PropType = {
 const EmblaCarousel = (props: PropType) => {
   const { slides, options } = props;
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay(),
-    // AutoHeight(),
-  ]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
+  const [tweenValues, setTweenValues] = useState<number[][]>([]);
 
   const onButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
     const { autoplay } = emblaApi.plugins();
@@ -38,6 +41,42 @@ const EmblaCarousel = (props: PropType) => {
     onButtonClick
   );
 
+  // Parallax scroll effect callback
+  const onScroll = useCallback(() => {
+    if (!emblaApi) return;
+
+    const engine = emblaApi.internalEngine();
+    const scrollProgress = emblaApi.scrollProgress();
+
+    const styles = emblaApi.scrollSnapList().map((scrollSnap, index) => {
+      let diffToTarget = scrollSnap - scrollProgress;
+
+      if (engine.options.loop) {
+        engine.slideLooper.loopPoints.forEach((loopItem) => {
+          const target = loopItem.target();
+          if (index === loopItem.index && target !== 0) {
+            const sign = Math.sign(target);
+            if (sign === -1) diffToTarget = scrollSnap - (1 + scrollProgress);
+            if (sign === 1) diffToTarget = scrollSnap + (1 - scrollProgress);
+          }
+        });
+      }
+      const tmp = 1 - Math.abs(diffToTarget * TWEEN_FACTOR);
+      const opacity = numberWithinRange(tmp, 0, 1);
+
+      const tweenValues = diffToTarget * (-1 / TWEEN_FACTOR) * 100;
+      return [tweenValues, opacity];
+    });
+    setTweenValues(styles);
+  }, [emblaApi, setTweenValues]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onScroll();
+    emblaApi.on("scroll", () => flushSync(() => onScroll()));
+    emblaApi.on("reInit", onScroll);
+  }, [emblaApi, onScroll]);
+
   return (
     <div className="sandbox theme-dark">
       <div className="sandbox__carousel">
@@ -49,11 +88,24 @@ const EmblaCarousel = (props: PropType) => {
                   {/* <div className="embla__slide__number">
                     <span>{index + 1}</span>
                   </div> */}
-                  <img
-                    className="embla__slide__img"
-                    src={imageByIndex(index)}
-                    alt="Your alt text"
-                  />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <div className="embla__parallax">
+                    <div
+                      className="embla__parallax__layer"
+                      style={{
+                        ...(tweenValues.length && {
+                          transform: `translateX(${tweenValues[index][0]}%)`,
+                          opacity: tweenValues[index][1],
+                        }),
+                      }}
+                    >
+                      <img
+                        className="embla__slide__img"
+                        src={imageByIndex(index)}
+                        alt="Your alt text"
+                      />
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

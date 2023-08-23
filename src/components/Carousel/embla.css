@@ -1,5 +1,5 @@
 .embla {
-  --slide-spacing: 0.5rem;
+  --slide-spacing: 1rem;
   --slide-size: 99%;
   padding: 1.6rem;
 }
@@ -99,6 +99,20 @@
     var(--brand-primary),
     var(--brand-secondary)
   );
+}
+.embla__parallax {
+  height: 100%;
+  overflow: hidden;
+}
+.embla__parallax__layer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.embla__parallax__img {
+  max-width: none;
+  width: calc(100% + (var(--slide-spacing) * 2));
+  margin-left: calc(var(--slide-spacing) * -1);
 }
 .embla__slide:nth-child(3) {
   flex: 0 0 50%;
