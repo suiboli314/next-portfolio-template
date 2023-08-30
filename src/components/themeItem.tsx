@@ -5,6 +5,7 @@ import {
   createTheme,
   responsiveFontSizes,
   // PaletteColorOptions,
+  StyledEngineProvider,
   ThemeProvider,
 } from "@mui/material/styles";
 
@@ -53,5 +54,11 @@ let theme = createTheme({
 theme = responsiveFontSizes(theme, { disableAlign: true });
 
 export default function ThemeItem({ children }: { children: React.ReactNode }) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        {children}
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
 }

@@ -1,14 +1,12 @@
+import { Box } from "@mui/material";
+
 import ThemeItem from "@/components/themeItem";
 import VerticalSidebar from "@/components/Navbar/verticalSidebar";
 
-import Box from "@mui/material/Box";
+import "./page.css";
+import Intro from "@/components/Introduction";
 
-import EmblaCarousel from "@/components/Carousel/EmblaCarousel";
-import { EmblaOptionsType } from "embla-carousel-react";
-
-const OPTIONS: EmblaOptionsType = { loop: true };
-const SLIDE_COUNT = 3;
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+export const GLOBAL_WIDTH = "calc(100% - 64px)";
 
 export default function Home() {
   return (
@@ -18,14 +16,16 @@ export default function Home() {
         sx={{
           width: {
             xs: "100%",
-            md: "calc(100% - 64px)",
-          },
+            md: GLOBAL_WIDTH,
+          }
         }}
       >
-        <main style={{ display: "flex" }}>
-          <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+        <main>
+          <Intro/>
+
         </main>
       </Box>
+      
     </ThemeItem>
   );
 }
