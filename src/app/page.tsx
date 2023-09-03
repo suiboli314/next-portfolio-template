@@ -21,8 +21,8 @@ export default function Home() {
         }}
       >
         <main>
-          <Intro/>
-
+          {/* <Intro/> */}
+          
         </main>
       </Box>
       

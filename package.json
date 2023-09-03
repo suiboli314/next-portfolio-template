@@ -44,8 +44,6 @@
     "embla-carousel-autoplay": "^8.0.0-rc12",
     "embla-carousel-react": "^8.0.0-rc12",
     "next": "^13.x",
-    "nextra": "^2.x",
-    "nextra-theme-blog": "^2.x",
     "react": "^18.x",
     "react-dom": "^18.x"
   },

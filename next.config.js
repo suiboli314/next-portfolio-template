@@ -12,7 +12,7 @@
 // });
 
 const nextConfig = {
-  // withNextra,
+
 };
 
 export default nextConfig;
