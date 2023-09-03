@@ -41,6 +41,8 @@ export default function VerticalSidebar(props: PropType) {
               display: "block",
               writingMode: "vertical-rl",
               textOrientation: "mixed",
+              fontSize: "21px",
+              fontWeight: "light"
             }}
           >
             {page}

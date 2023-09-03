@@ -12,7 +12,15 @@
 // });
 
 const nextConfig = {
-  // withNextra,
+  reactStrictMode: true,
+  experimental: {
+    appDir: true,
+  },
+  compiler: {
+    styledComponents: {
+      displayName: false,
+    },
+  },
 };
 
 export default nextConfig;
