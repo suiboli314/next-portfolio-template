@@ -7,5 +7,5 @@
 }
 .sandbox__carousel {
   position: relative;
-  height: var(--slide-maxHeight);
+  max-height: var(--slide-maxHeight);
 }

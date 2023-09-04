@@ -9,9 +9,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
+import { Property } from "csstype";
+
 const pages = ["Home", "Blog"];
 
-type PropType = { width: number };
+type PropType = { width: Property.Width };
 
 export default function VerticalSidebar(props: PropType) {
   const { width } = props;

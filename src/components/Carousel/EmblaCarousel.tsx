@@ -8,7 +8,7 @@ import useEmblaCarousel, {
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import Autoplay from "embla-carousel-autoplay";
 import { flushSync } from "react-dom";
-import imageByIndex from "./imageByIndex";
+import imageByIndex from "@/components/imageByIndex";
 
 import "./base.css";
 import "./embla.css";

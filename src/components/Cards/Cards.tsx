@@ -1,17 +1,22 @@
 import { Box, Typography } from "@mui/material";
 
 type PropType = {
-  backColor?: string;
+  bgcolor?: string;
   title?: string;
   children?: React.ReactNode;
+  flexBasis?: string 
 };
 
 export default function Card(props: PropType) {
-  const { backColor, title, children } = props;
+  const { bgcolor, title, children } = props;
+
+  let { flexBasis } = props;
+
+  if (!flexBasis) flexBasis = "100%";
 
   return (
     <>
-      <Box color={backColor}>
+      <Box bgcolor={bgcolor} flexBasis={flexBasis} display={"flex"}>
         {children}
         <Typography variant="subtitle1" gutterBottom>{title}</Typography>
       </Box>

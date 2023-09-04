@@ -33,4 +33,5 @@
   --admonition-danger-rgb-value: 220, 38, 38;
 
   --slide-maxHeight: 50rem;
+  flex-basis: 100%;
 }

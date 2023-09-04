@@ -29,7 +29,7 @@
   width: 4.6rem;
   height: 4.6rem;
   z-index: 1;
-  position: absolute;
+  position: relative;
   top: 0.6rem;
   right: 0.6rem;
   border-radius: 50%;
@@ -71,7 +71,7 @@
 .embla__dots {
   z-index: 1;
   bottom: 1.6rem;
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   display: flex;
@@ -114,6 +114,7 @@
   width: calc(100% + (var(--slide-spacing) * 2));
   margin-left: calc(var(--slide-spacing) * -1);
 }
+
 .embla__slide:nth-child(3) {
-  flex: 0 0 50%;
+  flex-basis: 50%;
 }

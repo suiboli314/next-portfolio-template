@@ -11,13 +11,16 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 export default function Intro() {
   return (
-    <Box bgcolor={"#a2a3e9"} borderColor={"#a2a3e9"} flexBasis={"100%"}>
+    <Box bgcolor={"#a2a3e9"} flexBasis={"100%"} display={"flex"} flexWrap={"wrap"}>
       <EmblaCarousel slides={SLIDES} options={OPTIONS} />
 
-      <Typography variant="body1" gutterBottom fontSize={"21px"}>
+      <Box minHeight={"9rem"} flexBasis={"100%"}/>
+
+      <Typography variant="body1" gutterBottom flexBasis={"100%"} fontSize={"21px"} >
         As a self-motivated software engineer, I have experience in&nbsp;
       </Typography>
-      <Typography variant="body1" gutterBottom fontSize={"21px"} fontFamily={"Monospace"}>
+      <Typography variant="body1" gutterBottom flexBasis={"100%"}
+        fontSize={"21px"} fontFamily={"Monospace"} >
         <TypeWriter
           sequence={[
             "Game Design",
@@ -29,11 +32,12 @@ export default function Intro() {
         />
         &nbsp;
       </Typography>
-      <Typography variant="body1" gutterBottom fontSize={"21px"}>
+      <Typography variant="body1" gutterBottom flexBasis={"100%"} fontSize={"21px"}>
         1 year SDE experience, pursuing Master Degree in Computer Science at
         Northeastern University, Teaching Assistant in Algorithm and Computer Vision.
       </Typography>
 
+      <Box minHeight={"9rem"} flexBasis={"100%"}/>
     </Box>
   );
 }

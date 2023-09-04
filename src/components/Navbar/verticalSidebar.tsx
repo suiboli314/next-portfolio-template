@@ -6,18 +6,14 @@ import Tooltip from "@mui/material/Tooltip";
 
 import Navpages from "./navpages";
 
-const width = 64;
+export const WIDTH = "64px";
 
-export default function VerticalSidebar({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function VerticalSidebar({ children }: { children?: React.ReactNode }) {
   return (
     <Box
       sx={{
         height: { md: "100vh" },
-        width: { md: width },
+        width: { md: WIDTH },
         position: { md: "fixed" },
         right: { md: 0 },
         display: "flex",
@@ -28,7 +24,7 @@ export default function VerticalSidebar({
         sx={{ height: { md: "100%" }, flexDirection: { md: "column" } }}
       >
         <Toolbar sx={{ flexDirection: { md: "column" } }} disableGutters>
-          <Navpages width={width} />
+          <Navpages width={WIDTH} />
           <Box flexGrow={0}>
             <Tooltip title="avatar icon">
               <Avatar alt="Chen" src="/icon.png" />
