@@ -1,15 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
+import {
+  Box,
+  IconButton,
+  Typography,
+  Menu,
+  Button,
+  MenuItem,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
-
 import { Property } from "csstype";
+
+import "./navpages.css";
 
 const pages = ["Home", "Blog"];
 
@@ -33,21 +36,20 @@ export default function VerticalSidebar(props: PropType) {
         sx={{ display: { xs: "none", md: "flex" } }}
         maxWidth={width}
       >
-        {pages.map((page) => (
-          <Button
-            key={page}
-            onClick={handleCloseNavMenu}
-            sx={{
-              my: 2,
-              color: "white",
-              display: "block",
-              writingMode: "vertical-rl",
-              textOrientation: "mixed",
-              fontSize: "21px",
-              fontWeight: "light"
-            }}
-          >
-            {page}
+        {pages.map((page, index) => (
+          <Button className={"nav"} key={index} onClick={handleCloseNavMenu}>
+            <Typography
+              color="white"
+              fontSize="21px"
+              fontWeight="lighter"
+              textAlign="center"
+              sx={{
+                writingMode: "vertical-rl",
+                textOrientation: "mode",
+              }}
+            >
+              {page}
+            </Typography>
           </Button>
         ))}
       </Box>
