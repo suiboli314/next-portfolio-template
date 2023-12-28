@@ -4,7 +4,7 @@ type PropType = {
   bgcolor?: string;
   title?: string;
   children?: React.ReactNode;
-  flexBasis?: string 
+  flexBasis?: string;
 };
 
 export default function Card(props: PropType) {
@@ -18,7 +18,9 @@ export default function Card(props: PropType) {
     <>
       <Box bgcolor={bgcolor} flexBasis={flexBasis} display={"flex"}>
         {children}
-        <Typography variant="subtitle1" gutterBottom>{title}</Typography>
+        <Typography variant="subtitle1" gutterBottom>
+          {title}
+        </Typography>
       </Box>
     </>
   );

@@ -16,28 +16,19 @@ export default function Intro() {
 
       <Box minHeight={"9rem"} flexBasis={"100%"}/>
 
-      <Typography variant="body1" gutterBottom flexBasis={"100%"} fontSize={"21px"} >
+      <Typography variant="body1" gutterBottom flexBasis={"100%"} fontSize={"21px"}>
         As a self-motivated software engineer, I have experience in&nbsp;
       </Typography>
-      <Typography variant="body1" gutterBottom flexBasis={"100%"}
-        fontSize={"21px"} fontFamily={"Monospace"} >
-        <TypeWriter
-          sequence={[
-            "Game Design",
-            "AI Design",
-            "Full Stack Development",
-            "Cyber-security",
-          ]}
-          infinite
-        />
+      <Typography variant="body1" gutterBottom flexBasis={"100%"} fontSize={"21px"} fontFamily={"Monospace"}>
+        <TypeWriter sequence={["Game Design", "AI Design", "Full Stack Development", "Cyber-security"]} infinite />
         &nbsp;
       </Typography>
       <Typography variant="body1" gutterBottom flexBasis={"100%"} fontSize={"21px"}>
-        1 year SDE experience, pursuing Master Degree in Computer Science at
-        Northeastern University, Teaching Assistant in Algorithm and Computer Vision.
+        1 year SDE experience, pursuing Master Degree in Computer Science at Northeastern University, Teaching Assistant
+        in Algorithm and Computer Vision.
       </Typography>
 
-      <Box minHeight={"9rem"} flexBasis={"100%"}/>
+      <Box minHeight={"9rem"} flexBasis={"100%"} />
     </Box>
   );
 }

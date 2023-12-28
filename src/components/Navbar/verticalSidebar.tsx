@@ -6,7 +6,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 import Navpages from "./navpages";
 
-export const WIDTH = "64px";
+export const WIDTH = "4rem";
 
 export default function VerticalSidebar({ children }: { children?: React.ReactNode }) {
   return (
@@ -19,10 +19,7 @@ export default function VerticalSidebar({ children }: { children?: React.ReactNo
         display: "flex",
       }}
     >
-      <AppBar
-        position="static"
-        sx={{ height: { md: "100%" }, flexDirection: { md: "column" } }}
-      >
+      <AppBar position="static" sx={{ height: { md: "100%" }, flexDirection: { md: "column" } }}>
         <Toolbar sx={{ flexDirection: { md: "column" } }} disableGutters>
           <Navpages width={WIDTH} />
           <Box flexGrow={0}>

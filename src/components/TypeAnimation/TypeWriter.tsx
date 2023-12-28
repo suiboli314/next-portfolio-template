@@ -9,7 +9,7 @@ type PropType = {
   delay?: number;
 };
 
-const TypeWriter = (props: PropType) => {
+export const TypeWriter = (props: PropType) => {
   const { sequence, infinite } = props;
   let { delay, deleteDelay } = props;
 
@@ -18,18 +18,15 @@ const TypeWriter = (props: PropType) => {
   const [sequenceIndex, setSequenceIndex] = useState(0);
   const [fulfill, setFulfill] = useState(false);
 
-  const getRandTypingSpeed = (min:number, max: number) => (Math.random() * (max - min) + min);
+  const getRandTypingSpeed = (min: number, max: number) => Math.random() * (max - min) + min;
 
   if (!delay) delay = getRandTypingSpeed(30, 200);
   if (!deleteDelay) deleteDelay = 20;
 
   useEffect(() => {
-    
     function writing() {
       if (textIndex < sequence[sequenceIndex].length && !fulfill) {
-        setCurrentText(
-          (prevText) => prevText + sequence[sequenceIndex][textIndex],
-        );
+        setCurrentText((prevText) => prevText + sequence[sequenceIndex][textIndex]);
         setTextIndex((prevIndex) => prevIndex + 1);
       } else if (textIndex == sequence[sequenceIndex].length && !fulfill) {
         setFulfill(true);
@@ -60,15 +57,7 @@ const TypeWriter = (props: PropType) => {
     }
 
     return () => clearTimeout(timeout);
-  }, [
-    textIndex,
-    sequenceIndex,
-    fulfill,
-    delay,
-    deleteDelay,
-    infinite,
-    sequence,
-  ]);
+  }, [textIndex, sequenceIndex, fulfill, delay, deleteDelay, infinite, sequence]);
 
   return <span>{currentText}</span>;
 };

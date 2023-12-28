@@ -2,14 +2,13 @@
 // https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#using-external-data
 // https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons#generate-icons-using-code-js-ts-tsx
 
-/* eslint-disable @next/next/no-img-element */
-import { ImageResponse } from "next/server";
+import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-const alt = "avatar";
-const size = { width: 1200, height: 630 };
-// const contentType = "image/png";
+export const alt = "avatar";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
 
 export async function GET(request: Request) {
   const { headers } = request;
@@ -46,6 +45,6 @@ export async function GET(request: Request) {
     ),
     {
       ...size,
-    }
+    },
   );
 }

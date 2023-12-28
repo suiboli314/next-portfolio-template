@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
-import useEmblaCarousel, {
-  EmblaOptionsType,
-  EmblaCarouselType,
-} from "embla-carousel-react";
+import { useState, useEffect, useCallback } from "react";
+import cn from "classnames";
+import useEmblaCarousel, { EmblaOptionsType, EmblaCarouselType } from "embla-carousel-react";
 import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import Autoplay from "embla-carousel-autoplay";
 import { flushSync } from "react-dom";
-import imageByIndex from "@/components/imageByIndex";
+import imageByIndex from "@/components/ImageContainer/imageByIndex";
 
 import "./base.css";
 import "./embla.css";
@@ -99,11 +97,7 @@ const EmblaCarousel = (props: PropType) => {
                         }),
                       }}
                     >
-                      <img
-                        className="embla__slide__img"
-                        src={imageByIndex(index)}
-                        alt="Your alt text"
-                      />
+                      <img className="embla__slide__img" src={imageByIndex(index)} alt="Your alt text" />
                     </div>
                   </div>
                 </div>
@@ -116,9 +110,7 @@ const EmblaCarousel = (props: PropType) => {
               <DotButton
                 key={index}
                 onClick={() => onDotButtonClick(index)}
-                className={"embla__dot".concat(
-                  index === selectedIndex ? " embla__dot--selected" : ""
-                )}
+                className={cn("embla__dot", { "embla__dot--selected": index === selectedIndex })}
               />
             ))}
           </div>

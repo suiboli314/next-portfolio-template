@@ -1,10 +1,6 @@
 "use client";
-import React, {
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+
+import { PropsWithChildren, useCallback, useEffect, useState } from "react";
 import { EmblaCarouselType } from "embla-carousel-react";
 
 type UseDotButtonType = {
@@ -70,3 +66,5 @@ export const DotButton = (props: PropType) => {
     </button>
   );
 };
+
+export default DotButton;
