@@ -1,5 +1,11 @@
 import "./globals.css";
 import { Viewport, type Metadata } from "next";
+import { Box } from "@mui/material";
+
+import ThemeItem from "@/components/themeItem";
+import VerticalSidebar, { WIDTH as SIDEBAR_WITH } from "@/components/Navbar/verticalSidebar";
+
+export const GLOBAL_WIDTH = `calc(100% - ${SIDEBAR_WITH})`;
 
 const title = "Chenjie's Portfolio";
 const description = "Personal Homepage built in Next.js";
@@ -77,7 +83,21 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body> {children} </body>
+      <body>
+        <ThemeItem>
+          <VerticalSidebar></VerticalSidebar>
+          <Box
+            sx={{
+              width: {
+                xs: "100%",
+                md: GLOBAL_WIDTH,
+              },
+            }}
+          >
+            <main>{children}</main>
+          </Box>
+        </ThemeItem>
+      </body>
     </html>
   );
 }
