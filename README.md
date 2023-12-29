@@ -58,7 +58,7 @@ Image source:  [@大伏アオ](https://twitter.com/blue00f4) at [pixiv](https://
 #### How to Install
 
 - Clone the repo
-- `npm install` install the required dependencies in repo folder
+- `yarn install` install the required dependencies in repo folder
 
 ### Other Resources
 - [presentation slides](./docs/assets/resources/Personal%20Homepage%20Presentation.pdf)

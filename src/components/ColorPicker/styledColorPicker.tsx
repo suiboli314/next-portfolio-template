@@ -1,0 +1,43 @@
+import { memo } from "react";
+import { MuiColorInput, MuiColorInputFormat } from "mui-color-input";
+
+type ColorPickerProps = {
+  color: string;
+  setColor?: (newValue: string) => void;
+  format?: MuiColorInputFormat;
+  [x: string | number | symbol]: unknown;
+};
+
+export const ColorPicker = memo((props: ColorPickerProps) => {
+  const { color, setColor, format, ...otherProps } = props;
+
+  return (
+    <>
+      <MuiColorInput
+        value={color}
+        onChange={(newValue) => {
+          if (setColor) setColor(newValue);
+        }}
+        format={format ?? "hex"}
+        {...otherProps}
+        sx={{
+          "& .MuiOutlinedInput-input": {
+            background: "#ffffff22",
+            color: "white",
+            fontFamily: "monospace",
+            fontSize: "1rem",
+            width: "4em",
+            borderRadius: "9999px",
+            paddingLeft: "1rem",
+          },
+          "& .MuiInputAdornment-root": { background: "white", borderRadius: "6px", width: "24px", height: "24px" },
+          "& .MuiButton-root": { width: "24px", height: "24px" },
+          marginTop: "0.3rem",
+          marginBottom: "0.3rem",
+        }}
+      />
+    </>
+  );
+});
+
+export default ColorPicker;
