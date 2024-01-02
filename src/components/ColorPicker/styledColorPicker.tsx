@@ -25,7 +25,7 @@ export const ColorPicker = memo((props: ColorPickerProps) => {
             color: "white",
             fontFamily: "monospace",
             fontSize: "1rem",
-            width: "4em",
+            width: "4.25em",
             borderRadius: "9999px",
             paddingLeft: "1rem",
           },

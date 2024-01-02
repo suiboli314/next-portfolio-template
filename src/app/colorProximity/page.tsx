@@ -7,11 +7,12 @@ import { UserColorPicker, NearColor } from "@/components/ColorPicker/myColorPick
 
 export default function ColorProximity() {
   return (
-    <ColorBackGround>
-      <Typography variant="h2" gutterBottom>
-        Find Closest Neighbor of Color
-      </Typography>
-      <ColorProvider>
+    <ColorProvider>
+      <ColorBackGround>
+        <Typography variant="h2" gutterBottom>
+          Find Closest Neighbor of Color
+        </Typography>
+
         <Box
           flexDirection="row"
           display="flex"
@@ -38,7 +39,7 @@ export default function ColorProximity() {
           <ColorListTextInput />
           <ColorListDisplay />
         </Box>
-      </ColorProvider>
-    </ColorBackGround>
+      </ColorBackGround>
+    </ColorProvider>
   );
 }

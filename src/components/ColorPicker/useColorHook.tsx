@@ -29,15 +29,13 @@ export const ColorContext = createContext<IColorInputType>({
 
 export const useColorHook = () => {
   const context = useContext(ColorContext);
-  if (!context) {
-    throw new Error("useColorHook must be used within a ColorDataProvider");
-  }
+  if (!context) throw new Error("useColorHook must be used within a ColorDataProvider");
   return context;
 };
 
 export const ColorDataProvider = ({ children }: { children?: React.ReactNode }) => {
   const [pickColor, setPickColor] = useState("#222222");
-  const [nearColor, setNearColor] = useState("#222222");
+  const [nearColor, setNearColor] = useState("#000000");
   const [minDelta, setMinDelta] = useState(0);
   const [colorList, setColorList] = useState<string[]>([]);
 
