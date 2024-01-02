@@ -28,9 +28,10 @@ export const NearColor = memo(() => {
     minDelta !== 0 && (
       <Container>
         <Typography variant="h6" gutterBottom>
-          Nearest Color {`: ${minDelta}`}
+          Nearest Color
         </Typography>
         <NearColorCom />
+        <Typography variant="body2">Delta: {minDelta}</Typography>
       </Container>
     )
   );

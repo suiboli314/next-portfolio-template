@@ -19,7 +19,6 @@ export const ColorPicker = memo((props: ColorPickerProps) => {
           if (setColor) setColor(newValue);
         }}
         format={format ?? "hex"}
-        {...otherProps}
         sx={{
           "& .MuiOutlinedInput-input": {
             background: "#ffffff22",
@@ -35,6 +34,7 @@ export const ColorPicker = memo((props: ColorPickerProps) => {
           marginTop: "0.3rem",
           marginBottom: "0.3rem",
         }}
+        {...otherProps}
       />
     </>
   );

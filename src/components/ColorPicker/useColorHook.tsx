@@ -36,8 +36,8 @@ export const useColorHook = () => {
 };
 
 export const ColorDataProvider = ({ children }: { children?: React.ReactNode }) => {
-  const [pickColor, setPickColor] = useState("#ffffff");
-  const [nearColor, setNearColor] = useState("#ffffff");
+  const [pickColor, setPickColor] = useState("#222222");
+  const [nearColor, setNearColor] = useState("#222222");
   const [minDelta, setMinDelta] = useState(0);
   const [colorList, setColorList] = useState<string[]>([]);
 

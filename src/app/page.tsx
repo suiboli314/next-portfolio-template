@@ -3,8 +3,6 @@ import Card from "@/components/Cards/Cards";
 import ImageMedia from "@/components/ImageContainer/ImageMedia";
 import imageByIndex from "@/components/ImageContainer/imageByIndex";
 
-import "./page.css";
-
 export default function Home() {
   return (
     <>

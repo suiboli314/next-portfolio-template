@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Viewport, type Metadata } from "next";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { Box } from "@mui/material";
 
 import ThemeItem from "@/components/themeItem";
@@ -81,20 +82,32 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ marginTop: 0 }}>
-        <ThemeItem>
-          <VerticalSidebar></VerticalSidebar>
-          <Box
-            sx={{
-              width: {
-                xs: "100%",
-                md: GLOBAL_WIDTH,
-              },
-            }}
-          >
-            <main>{children}</main>
-          </Box>
-        </ThemeItem>
+      <body style={{ margin: 0 }}>
+        <AppRouterCacheProvider>
+          <ThemeItem>
+            <VerticalSidebar></VerticalSidebar>
+            <Box
+              sx={{
+                width: {
+                  xs: "100%",
+                  md: GLOBAL_WIDTH,
+                },
+              }}
+            >
+              <main
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                }}
+              >
+                {children}
+              </main>
+            </Box>
+          </ThemeItem>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

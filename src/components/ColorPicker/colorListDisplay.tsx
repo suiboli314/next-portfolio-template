@@ -1,7 +1,7 @@
 "use client";
 
 import { memo } from "react";
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 import { useColorHook } from "@/components/ColorPicker/useColorHook";
 import ColorPicker from "@/components/ColorPicker/styledColorPicker";
 
@@ -10,11 +10,21 @@ export const ColorListDisplay = memo(() => {
 
   return (
     <>
-      <Container sx={{ alignContent: "stretch" }}>
+      <Box
+        display="flex"
+        flexDirection="row"
+        padding={{ xs: "0.5rem", md: "1rem" }}
+        flex="1"
+        flexWrap="wrap"
+        justifyItems={{ xs: "center", md: "flex-start" }}
+        justifyContent={{ xs: "center", md: "flex-start" }}
+      >
         {colorList.map((color, index) => (
-          <ColorPicker color={color} key={index} disablePopover />
+          <Box boxSizing="border-box" key={index}>
+            <ColorPicker color={color} disablePopover />
+          </Box>
         ))}
-      </Container>
+      </Box>
     </>
   );
 });
