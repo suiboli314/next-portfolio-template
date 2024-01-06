@@ -8,6 +8,8 @@ import Navpages from "./navpages";
 
 export const SIDEBAR_WITH = "4rem";
 export const GLOBAL_WIDTH = `calc(100% - ${SIDEBAR_WITH})`;
+export const TOPBAR_HEIGHT = "56px";
+export const GLOBAL_HEIGHT = `calc(100vh - ${TOPBAR_HEIGHT})`;
 
 export default function VerticalSidebar({ children }: { children?: React.ReactNode }) {
   return (
@@ -22,7 +24,7 @@ export default function VerticalSidebar({ children }: { children?: React.ReactNo
     >
       <AppBar position="static" sx={{ height: { md: "100%" }, flexDirection: { md: "column" } }}>
         <Toolbar sx={{ flexDirection: { md: "column" } }} disableGutters>
-          <Navpages width={SIDEBAR_WITH} />
+          <Navpages maxWidth={SIDEBAR_WITH} maxHeight={TOPBAR_HEIGHT} />
           <Box flexGrow={0}>
             <Tooltip title="avatar icon">
               <Avatar alt="Chen" src="/icon.png" />

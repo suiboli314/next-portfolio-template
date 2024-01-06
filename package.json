@@ -20,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/suiboli314/suiboli314.github.io.git"
+    "url": "git+https://github.com/suiboli314/next-portfolio-template.git"
   },
   "bugs": {
-    "url": "https://github.com/suiboli314/suiboli314.github.io/issues"
+    "url": "https://github.com/suiboli314/next-portfolio-template/issues"
   },
-  "homepage": "https://suiboli314.github.io",
+  "homepage": "https://suiboli314.vercel.app",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

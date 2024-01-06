@@ -6,17 +6,12 @@ import { Box } from "@mui/material";
 import ThemeItem from "@/components/themeItem";
 import VerticalSidebar, { GLOBAL_WIDTH } from "@/components/Navbar/verticalSidebar";
 
-const title = "Chenjie's Portfolio";
-const description = "Personal Homepage built in Next.js";
-const portfolio_url = "https://suiboli314.github.io";
+const portfolio_url = "https://suiboli314.vercel.app";
 
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata#static-metadata
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata#dynamic-metadata
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata
 export const metadata: Metadata = {
-  title: title,
-  description: description,
-  keywords: ["Next.js", "React", "JavaScript", "Chenjie Wu", "Portfolio"],
   authors: [{ name: "Chenjie Wu", url: portfolio_url }],
   formatDetection: {
     email: true,
@@ -38,36 +33,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  manifest: "/manifest.json",
-  openGraph: {
-    title: title,
-    description: description,
-    url: portfolio_url,
-    siteName: title,
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: "/og/",
-        alt: "avatar",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: title,
-    description: description,
-    creator: "@ChenWuWebDev",
-    images: [
-      {
-        url: "/og/",
-        alt: "avatar",
-      },
-    ],
-  },
   verification: {
     // google: "google", yandex: "yandex", yahoo: "yahoo",
-    other: { me: [/* "my-email", */ "suiboli314.github.io"] },
+    other: { me: [/* "my-email", */ portfolio_url] },
   },
 };
 
@@ -85,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body style={{ margin: 0 }}>
         <AppRouterCacheProvider>
           <ThemeItem>
-            <VerticalSidebar></VerticalSidebar>
+            <VerticalSidebar />
             <Box
               sx={{
                 width: {
@@ -94,17 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 },
               }}
             >
-              <main
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textAlign: "center",
-                }}
-              >
-                {children}
-              </main>
+              {children}
             </Box>
           </ThemeItem>
         </AppRouterCacheProvider>

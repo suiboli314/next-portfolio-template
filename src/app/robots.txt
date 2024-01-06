@@ -6,6 +6,8 @@ Disallow: /posts
 User-agent: *
 Allow: /
 Allow: /api/og/*
+Allow: /colorProximity
 
 User-agent: AdsBot-Google
 Disallow: /
+Allow: /colorProximity

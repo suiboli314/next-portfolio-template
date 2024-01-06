@@ -3,6 +3,7 @@
 import { memo } from "react";
 import { Box } from "@mui/material";
 import { useColorHook } from "@/components/ColorPicker/useColorHook";
+import { GLOBAL_HEIGHT } from "../Navbar/verticalSidebar";
 
 type PropType = {
   children?: React.ReactNode;
@@ -15,18 +16,20 @@ export const ColorBackGround = memo((props: PropType) => {
 
   return (
     <>
-      <Box display="flex" flexGrow={1} justifyContent="center" flexWrap="wrap" minHeight="100vh" bgcolor={pickColor}>
-        <Box
-          bgcolor="black"
-          display="flex"
-          flexDirection="column"
-          padding={{ xs: "0.5rem", md: "1rem" }}
-          maxWidth={{ xs: "90%", md: "80%" }}
-          flex="1"
-          {...otherProps}
-        >
-          {children}
-        </Box>
+      <Box
+        display="flex"
+        flexGrow={1}
+        flexDirection="column"
+        alignItems="center"
+        flexWrap="wrap"
+        minHeight={{
+          xs: GLOBAL_HEIGHT,
+          md: "100vh",
+        }}
+        bgcolor={pickColor}
+        {...otherProps}
+      >
+        {children}
       </Box>
     </>
   );

@@ -11,7 +11,7 @@
 
 ###### Author: Chenjie Wu
 
-###### Page: [suiboli314.github.io](https://suiboli314.github.io)
+###### Page: [suiboli314.vercel.app](https://suiboli314.vercel.app)
 
 <!-- TABLE OF CONTENTS -->
 <details>

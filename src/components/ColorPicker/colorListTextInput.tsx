@@ -33,6 +33,7 @@ export const ColorListTextInput = memo((props: { [x: string | number | symbol]: 
     if (newString.length > 0) newString = newString.concat(", ");
     if (inputString !== newString) setInputString(newString);
   };
+
   const handleEscape = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Escape") handleColorListChange();
   };
@@ -47,20 +48,22 @@ export const ColorListTextInput = memo((props: { [x: string | number | symbol]: 
 
   return (
     <TextField
-      variant="outlined"
+      label="hex color codes"
       minRows={2}
       maxRows={10}
       multiline
+      variant="filled"
       size="medium"
       value={inputString}
       onKeyUp={handleEscape}
       onChange={handleInputChange}
       onBlur={handleColorListChange}
       sx={{
-        "& .MuiOutlinedInput-input": {
+        "& .MuiInputBase-input": {
           fontFamily: "monospace",
           color: "white",
         },
+        "& .MuiInputLabel-root": { color: "#ffffff66" },
         background: "#ffffff22",
         borderRadius: "10px",
       }}

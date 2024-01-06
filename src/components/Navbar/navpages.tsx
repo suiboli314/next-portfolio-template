@@ -12,32 +12,28 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Property } from "csstype";
 
-import "./navpages.css";
-
 const pages = ["Home", "Blog"];
 
-type PropType = { width: Property.Width };
+type PropType = { maxWidth: Property.Width; maxHeight?: Property.Height };
 
 export default function VerticalSidebar(props: PropType) {
-  const { width } = props;
+  const { maxWidth, maxHeight } = props;
 
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   const handleCloseNavMenu = () => setAnchorElNav(null);
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) =>
-    setAnchorElNav(event.currentTarget);
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorElNav(event.currentTarget);
 
   return (
     <>
       {/* wide screen display*/}
-      <Box
-        flexGrow={1}
-        flexDirection="column"
-        sx={{ display: { xs: "none", md: "flex" } }}
-        maxWidth={width}
-      >
+      <Box flexGrow={1} flexDirection="column" sx={{ display: { xs: "none", md: "flex" } }} maxWidth={maxWidth}>
         {pages.map((page, index) => (
-          <Button className={"nav"} key={index} onClick={handleCloseNavMenu}>
+          <Button
+            key={index}
+            onClick={handleCloseNavMenu}
+            sx={{ marginTop: ".5em", marginBottom: ".5em", display: "block" }}
+          >
             <Typography
               color="white"
               fontSize="21px"
@@ -55,7 +51,7 @@ export default function VerticalSidebar(props: PropType) {
       </Box>
 
       {/* mobile narrow screen display */}
-      <Box flexGrow={1} sx={{ display: { xs: "flex", md: "none" } }}>
+      <Box flexGrow={1} sx={{ display: { xs: "flex", md: "none" } }} maxHeight={maxHeight}>
         <IconButton
           size="large"
           aria-label="account of current user"

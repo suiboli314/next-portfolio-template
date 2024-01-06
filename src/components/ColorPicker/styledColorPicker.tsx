@@ -29,7 +29,12 @@ export const ColorPicker = memo((props: ColorPickerProps) => {
             borderRadius: "9999px",
             paddingLeft: "1rem",
           },
-          "& .MuiInputAdornment-root": { background: "white", borderRadius: "6px", width: "24px", height: "24px" },
+          "& .MuiInputAdornment-root": {
+            // background: "white", // use background to enable transparent blend mode
+            borderRadius: "6px",
+            width: "24px",
+            height: "24px",
+          },
           "& .MuiButton-root": { width: "24px", height: "24px" },
           marginTop: "0.3rem",
           marginBottom: "0.3rem",

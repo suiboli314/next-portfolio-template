@@ -7,9 +7,11 @@ export const defApplication = (app) => {
   switch (app) {
     case Application.Textiles:
       application = Application.Textiles;
+      break;
     case Application.GraphicArts:
     default:
       application = Application.GraphicArts;
+      break;
   }
 };
 
